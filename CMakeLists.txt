@@ -18,11 +18,6 @@ if(CONFIG_MBEDTLS_BUILTIN)
     library/*.c
     )
 
-  zephyr_library_sources(
-    zephyr_init.c
-    ${mbedtls_sources}
-  )
-
   zephyr_library_app_memory(k_mbedtls_partition)
 if(CONFIG_ARCH_POSIX AND CONFIG_ASAN AND NOT CONFIG_64BIT)
   # i386 assembly code used in MBEDTLS does not compile with size optimization
